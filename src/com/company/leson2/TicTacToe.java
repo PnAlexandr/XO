@@ -40,6 +40,11 @@ public class TicTacToe {
        int y = scanner.nextInt();
        setSym(x-1,y-1,PLAYER_SYM);
     }
+    private static boolean isCellOK(int x,int y,){
+        if(x<0||y<0||x>2||y>2)return false;
+        if(filed[x][y]=='.')return true;
+        return false;
+    }
 
     public static void main(String[] args) {
         initFiled();

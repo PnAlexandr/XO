@@ -1,5 +1,6 @@
 package com.company.leson2;
 
+import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -11,6 +12,8 @@ public class TicTacToe {
     static final char COMP_SYM = 'O';
     static final char EMPTY_SYM = '.';
     static Scanner scanner =new Scanner(System.in);
+    static Random rand = new Random();
+
     private static void initFiled() {
         for (int i = 0; i < filed.length; i++) {
             for (int j = 0; j < filed[i].length; j++) {
@@ -44,16 +47,27 @@ public class TicTacToe {
 
        setSym(x-1,y-1,PLAYER_SYM);
     }
-    private static boolean isCellOK(int x,int y,){
+    private static boolean isCellOK(int x,int y){
         if(x<0||y<0||x>2||y>2)return false;
         return filed[x][y] == EMPTY_SYM;
+    }
+    private static void compTurn(){
+        int x,y;
+        do {
+            System.out.println("Enter coordinates X Y(1..3)>>>");
+            x = rand.nextInt(3);
+            y = rand.nextInt(3);
+        }while (!isCellOK(x-1,y-1));
+
+        setSym(x-1,y-1,COMP_SYM);
     }
 
     public static void main(String[] args) {
         initFiled();
-        printFiled();
-       playerTurn();
-        printFiled();
-
+        for (int i = 0; i <3; i++) {
+            playerTurn();
+            compTurn();
+            printFiled();
+        }
     }
 }

@@ -57,7 +57,7 @@ public class TicTacToe {
             System.out.println("Enter coordinates X Y(1..3)>>>");
             x = rand.nextInt(3);
             y = rand.nextInt(3);
-        }while (!isCellOK(x-1,y-1));
+        }while (!isCellOK(x,y));
 
         setSym(x,y,COMP_SYM);
     }
@@ -66,19 +66,48 @@ public class TicTacToe {
         if(filed[1][0]==sym && filed[1] [1]==sym &&filed[1][2]==sym )return true;
         if(filed[2][0]==sym && filed[2] [1]==sym &&filed[2][2]==sym )return true;
 
-        if(filed[0][0]==sym && filed[0] [1]==sym &&filed[0][1]==sym )return true;
-        
+        if(filed[0][0]==sym && filed[1] [0]==sym &&filed[2][0]==sym )return true;
+        if(filed[0][1]==sym && filed[1] [1]==sym &&filed[2][1]==sym )return true;
+        if(filed[0][2]==sym && filed[1] [2]==sym &&filed[2][2]==sym )return true;
 
+        if(filed[0][0]==sym && filed[1] [1]==sym &&filed[2][2]==sym )return true;
+        if(filed[0][2]==sym && filed[1] [1]==sym &&filed[2][0]==sym )return true;
 
-
-        return false;
+        return  false;
+    }
+    private static boolean checkDraw() {
+        for (int i = 0; i < filed.length; i++) {
+            for (int j = 0; j < filed[i].length; j++) {
+                if (filed[i][j] == EMPTY_SYM) return false;
+            }
+        }
+        return true;
     }
 
     public static void main(String[] args) {
         initFiled();
-        for (int i = 0; i <3; i++) {
+        printFiled();
+        while (true){
             playerTurn();
+            printFiled();
+            if (checkWin(PLAYER_SYM)){
+                System.out.println("Player wins");
+                break;
+            }
+            if(checkDraw()){
+                System.out.println("draw");
+                break;
+            }
             compTurn();
+            if (checkWin(COMP_SYM)){
+                System.out.println("Comp wins");
+                break;
+            }
+            if(checkDraw()){
+                System.out.println("draw");
+                break;
+            }
+
             printFiled();
         }
     }

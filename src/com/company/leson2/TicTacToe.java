@@ -35,14 +35,18 @@ public class TicTacToe {
     }
 
     private static void playerTurn(){
-        System.out.println("Enter coordinates X Y(1..3)>>>");
-       int x = scanner.nextInt();
-       int y = scanner.nextInt();
+        int x,y;
+        do {
+            System.out.println("Enter coordinates X Y(1..3)>>>");
+            x = scanner.nextInt();
+            y = scanner.nextInt();
+        }while (!isCellOK(x-1,y-1));
+
        setSym(x-1,y-1,PLAYER_SYM);
     }
     private static boolean isCellOK(int x,int y,){
         if(x<0||y<0||x>2||y>2)return false;
-        return filed[x][y] == '.';
+        return filed[x][y] == EMPTY_SYM;
     }
 
     public static void main(String[] args) {

@@ -7,7 +7,7 @@ import java.util.Scanner;
  * Created by Pavlovan on 20.12.2016.
  */
 public class TicTacToe {
-    static char[][] filed = new char[3][3];
+    static char[][] filed = new char[5][5];
     static final char PLAYER_SYM = 'X';
     static final char COMP_SYM = 'O';
     static final char EMPTY_SYM = '.';
@@ -55,8 +55,8 @@ public class TicTacToe {
         int x,y;
         do {
             System.out.println("Enter coordinates X Y(1..3)>>>");
-            x = rand.nextInt(3);
-            y = rand.nextInt(3);
+            x = rand.nextInt(5);
+            y = rand.nextInt(5);
         }while (!isCellOK(x,y));
 
         setSym(x,y,COMP_SYM);

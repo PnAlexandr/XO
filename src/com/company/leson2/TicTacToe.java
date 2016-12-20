@@ -59,7 +59,19 @@ public class TicTacToe {
             y = rand.nextInt(3);
         }while (!isCellOK(x-1,y-1));
 
-        setSym(x-1,y-1,COMP_SYM);
+        setSym(x,y,COMP_SYM);
+    }
+    private static boolean checkWin(char sym){
+        if(filed[0][0]==sym && filed[0] [1]==sym &&filed[0][2]==sym )return true;
+        if(filed[1][0]==sym && filed[1] [1]==sym &&filed[1][2]==sym )return true;
+        if(filed[2][0]==sym && filed[2] [1]==sym &&filed[2][2]==sym )return true;
+
+        if(filed[0][0]==sym && filed[0] [1]==sym &&filed[0][1]==sym )return true;
+        
+
+
+
+        return false;
     }
 
     public static void main(String[] args) {

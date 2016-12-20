@@ -69,8 +69,8 @@ public class TicTacToe {
             if(filed[0][i]==sym && filed[1] [i]==sym && filed[2][i]==sym && filed[3][i]==sym && filed[4][i]==sym)return true;
         }
 
-        if(filed[0][0]==sym && filed[1] [1]==sym &&filed[2][2]==sym )return true;
-        if(filed[0][2]==sym && filed[1] [1]==sym &&filed[2][0]==sym )return true;
+        if(filed[0][0]==sym && filed[1] [1]==sym && filed[2][2]==sym && filed[3][3]==sym )return true;
+        if(filed[0][2]==sym && filed[1] [1]==sym && filed[2][0]==sym && filed[2][0]==sym )return true;
 
         return  false;
     }

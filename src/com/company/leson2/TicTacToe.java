@@ -40,7 +40,7 @@ public class TicTacToe {
     private static void playerTurn(){
         int x,y;
         do {
-            System.out.println("Enter coordinates X Y(1..3)>>>");
+            System.out.println("Enter coordinates X Y(1..5)>>>");
             x = scanner.nextInt();
             y = scanner.nextInt();
         }while (!isCellOK(x-1,y-1));
@@ -48,13 +48,13 @@ public class TicTacToe {
        setSym(x-1,y-1,PLAYER_SYM);
     }
     private static boolean isCellOK(int x,int y){
-        if(x<0||y<0||x>2||y>2)return false;
+        if(x<0||y<0||x>4||y>4)return false;
         return filed[x][y] == EMPTY_SYM;
     }
     private static void compTurn(){
         int x,y;
         do {
-            System.out.println("Enter coordinates X Y(1..3)>>>");
+            System.out.println("Enter coordinates X Y(1..5)>>>");
             x = rand.nextInt(5);
             y = rand.nextInt(5);
         }while (!isCellOK(x,y));
@@ -62,13 +62,12 @@ public class TicTacToe {
         setSym(x,y,COMP_SYM);
     }
     private static boolean checkWin(char sym){
-        if(filed[0][0]==sym && filed[0] [1]==sym &&filed[0][2]==sym )return true;
-        if(filed[1][0]==sym && filed[1] [1]==sym &&filed[1][2]==sym )return true;
-        if(filed[2][0]==sym && filed[2] [1]==sym &&filed[2][2]==sym )return true;
-
-        if(filed[0][0]==sym && filed[1] [0]==sym &&filed[2][0]==sym )return true;
-        if(filed[0][1]==sym && filed[1] [1]==sym &&filed[2][1]==sym )return true;
-        if(filed[0][2]==sym && filed[1] [2]==sym &&filed[2][2]==sym )return true;
+        for (int i = 0; i <4 ; i++) {
+            if(filed[i][0]==sym && filed[i] [1]==sym && filed[i][2]==sym && filed[i][3]==sym && filed[i][4]==sym)return true;
+        }
+        for (int i = 0; i <4 ; i++) {
+            if(filed[0][i]==sym && filed[1] [i]==sym && filed[2][i]==sym && filed[3][i]==sym && filed[4][i]==sym)return true;
+        }
 
         if(filed[0][0]==sym && filed[1] [1]==sym &&filed[2][2]==sym )return true;
         if(filed[0][2]==sym && filed[1] [1]==sym &&filed[2][0]==sym )return true;

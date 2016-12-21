@@ -74,9 +74,11 @@ public class TicTacToe {
             if(filed[i][i]==sym && filed[i+1] [i+1]==sym && filed[i+2][i+2]==sym && filed[i+3][i+3]==sym )return true;
             if(filed[i][i+1]==sym && filed[i+1] [i+2]==sym && filed[i+2][i+3]==sym && filed[i+3][i+4]==sym )return true;
             if(filed[i+1][i]==sym && filed[i+2] [i+1]==sym && filed[i+3][i+2]==sym && filed[i+4][i+3]==sym )return true;
+            if(filed[i+1][i+1]==sym && filed[i+2] [i+2]==sym && filed[i+3][i+3]==sym && filed[i+4][i+4]==sym )return true;
         }
         for (int i = 0; i <1; i++) {
             if(filed[i+4][i]==sym && filed[i+3] [i+1]==sym && filed[i+2][i+2]==sym && filed[i+1][i+3]==sym )return true;
+            if(filed[i+4][i+1]==sym && filed[i+3] [i+2]==sym && filed[i+2][i+3]==sym && filed[i+1][i+4]==sym )return true;
             if(filed[i+3][i+1]==sym && filed[i+2] [i+2]==sym && filed[i+1][i+3]==sym && filed[i][i+4]==sym )return true;
             if(filed[i+3][i]==sym && filed[i+2] [i+1]==sym && filed[i+1][i+2]==sym && filed[i][i+3]==sym )return true;
         }
